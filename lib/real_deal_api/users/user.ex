@@ -9,7 +9,12 @@ defmodule RealDealApi.Users.User do
     field :biography, :string
     field :full_name, :string
     field :gender, :string
-    belongs_to :account, RealDealApi.Accounts.Account
+    field :skills, :string
+    field :role, Ecto.Enum, values: [:performer, :customer]
+
+    has_many :performer_tasks, RealDealApi.Tasks.Task, foreign_key: :performer_id
+    has_many :customer_tasks, RealDealApi.Tasks.Task, foreign_key: :customer_id
+    # field :photo
 
     timestamps()
   end

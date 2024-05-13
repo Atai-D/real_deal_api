@@ -2,8 +2,8 @@ import Config
 
 # Configure your database
 config :real_deal_api, RealDealApi.Repo,
-  username: "backend_stuff",
-  password: "blork_erlang",
+  username: "postgres",
+  password: "postgres",
   hostname: "localhost",
   database: "real_deal_api_dev",
   stacktrace: true,
@@ -19,7 +19,7 @@ config :real_deal_api, RealDealApi.Repo,
 config :real_deal_api, RealDealApiWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
-  http: [ip: {127, 0, 0, 1}, port: 4000],
+  http: [ip: {0, 0, 0, 0}, port: 4000],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,

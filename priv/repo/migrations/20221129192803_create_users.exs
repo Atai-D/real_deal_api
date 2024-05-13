@@ -7,6 +7,8 @@ defmodule RealDealApi.Repo.Migrations.CreateUsers do
       add :full_name, :string
       add :gender, :string
       add :biography, :text
+      add :role, :string
+      add :skills, :string
       add :account_id, references(:accounts, on_delete: :delete_all, type: :binary_id)
 
       timestamps()
