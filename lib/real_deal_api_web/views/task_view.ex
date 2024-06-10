@@ -22,7 +22,7 @@ defmodule RealDealApiWeb.TaskView do
       address: task.address,
       budget: task.budget,
       customer_id: task.customer_id,
-      performer_id: task.performer_id,
+      specialist_id: task.specialist_id,
       status: task.status
     }
   end

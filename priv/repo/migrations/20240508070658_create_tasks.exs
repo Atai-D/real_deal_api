@@ -14,16 +14,11 @@ defmodule RealDealApi.Repo.Migrations.CreateTasks do
       add :address, :string
       add :budget, :integer
 
-      add :performer_id, references(:users, type: :binary_id, on_delete: :nothing)
+      add :specialist_id, references(:users, type: :binary_id, on_delete: :nothing)
 
       add :customer_id, references(:users, type: :binary_id, on_delete: :nothing)
 
       timestamps()
     end
-
-    # modify table(:tasks) do
-    #   add_foreign_key(:performer_id, :users, on_delete: :delete_all)
-    #   add_foreign_key(:customer_id, :users, on_delete: :delete_all)
-    # end
   end
 end

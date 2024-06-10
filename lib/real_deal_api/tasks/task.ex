@@ -17,7 +17,7 @@ defmodule RealDealApi.Tasks.Task do
 
     has_many :responses, RealDealApi.Responses.Response
 
-    belongs_to :performer, RealDealApi.Users.User, foreign_key: :performer_id
+    belongs_to :specialist, RealDealApi.Users.User, foreign_key: :specialist_id
     belongs_to :customer, RealDealApi.Users.User, foreign_key: :customer_id
 
     timestamps()

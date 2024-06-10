@@ -10,7 +10,7 @@ defmodule RealDealApi.Users.User do
     field :full_name, :string
     field :gender, :string
     field :skills, :string
-    field :role, Ecto.Enum, values: [:performer, :customer]
+    field :role, Ecto.Enum, values: [:specialist, :customer]
 
     belongs_to :account, RealDealApi.Accounts.Account
     has_many :tasks, RealDealApi.Tasks.Task
