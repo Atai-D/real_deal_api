@@ -7,7 +7,7 @@ defmodule RealDealApi.Repo.Migrations.CreateResponses do
 
       add :owner_id, references(:users, type: :binary_id, on_delete: :nothing), null: false
 
-      add :task_id, references(:users, type: :binary_id, on_delete: :nothing), null: false
+      add :task_id, references(:tasks, type: :binary_id, on_delete: :nothing), null: false
       timestamps()
     end
   end

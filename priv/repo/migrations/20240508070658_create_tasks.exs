@@ -16,7 +16,7 @@ defmodule RealDealApi.Repo.Migrations.CreateTasks do
 
       add :performer_id, references(:users, type: :binary_id, on_delete: :nothing)
 
-      add :customer_id, references(:users, type: :binary_id, on_delete: :nothing), null: false
+      add :customer_id, references(:users, type: :binary_id, on_delete: :nothing)
 
       timestamps()
     end

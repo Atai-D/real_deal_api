@@ -20,6 +20,6 @@ defmodule RealDealApi.Responses.Response do
   def changeset(user, attrs) do
     user
     |> cast(attrs, all_fields())
-    |> validate_required(all_fields() -- @optional_fields)
+    |> validate_required([:owner_id, :task_id])
   end
 end

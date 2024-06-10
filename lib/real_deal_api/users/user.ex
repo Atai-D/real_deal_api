@@ -12,8 +12,9 @@ defmodule RealDealApi.Users.User do
     field :skills, :string
     field :role, Ecto.Enum, values: [:performer, :customer]
 
-    has_many :performer_tasks, RealDealApi.Tasks.Task, foreign_key: :performer_id
-    has_many :customer_tasks, RealDealApi.Tasks.Task, foreign_key: :customer_id
+    belongs_to :account, RealDealApi.Accounts.Account
+    has_many :tasks, RealDealApi.Tasks.Task
+    has_many :responses, RealDealApi.Responses.Response
     # field :photo
 
     timestamps()
