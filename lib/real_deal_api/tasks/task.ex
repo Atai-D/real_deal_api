@@ -2,7 +2,6 @@ defmodule RealDealApi.Tasks.Task do
   use Ecto.Schema
   import Ecto.Changeset
 
-  @optional_fields []
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
   schema "tasks" do
@@ -14,11 +13,11 @@ defmodule RealDealApi.Tasks.Task do
     field :period_end, :integer
     field :address, :string
     field :budget, :integer
-    field :status, Ecto.Enum, values: [:new, :completed, :cacneled, :in_progress]
+    field :status, Ecto.Enum, values: [:new, :completed, :canceled, :in_progress], default: :new
 
     has_many :responses, RealDealApi.Responses.Response
 
-    belongs_to :performer, RealDealApi.Users.User, foreign_key: :performer_id
+    belongs_to :specialist, RealDealApi.Users.User, foreign_key: :specialist_id
     belongs_to :customer, RealDealApi.Users.User, foreign_key: :customer_id
 
     timestamps()
@@ -29,9 +28,21 @@ defmodule RealDealApi.Tasks.Task do
   end
 
   @doc false
-  def changeset(user, attrs) do
-    user
+  def changeset(task, attrs) do
+    task
     |> cast(attrs, all_fields())
-    |> validate_required(all_fields() -- @optional_fields)
+    |> validate_required([])
+  end
+
+  def create_changeset(task, attrs) do
+    task
+    |> cast(attrs, all_fields())
+    |> validate_required([
+      :category,
+      :title,
+      :address,
+      :budget
+      # :customer_id
+    ])
   end
 end

@@ -25,6 +25,10 @@ defmodule RealDealApiWeb.Router do
     get "/", DefaultController, :index
     post "/accounts/create", AccountController, :create
     post "/accounts/sign_in", AccountController, :sign_in
+
+    post "/tasks/create", TaskController, :create
+    get "/tasks/:id", TaskController, :show
+    post "/tasks/add_response", TaskController, :add_response
   end
 
   scope "/api", RealDealApiWeb do
