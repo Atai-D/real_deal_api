@@ -1,8 +1,4 @@
 defmodule RealDealApi.Tasks do
-  @moduledoc """
-  The Tasks context.
-  """
-
   import Ecto.Query, warn: false
   alias RealDealApi.Repo
   alias RealDealApi.Responses.Response
